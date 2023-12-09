@@ -30,6 +30,8 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+const users = {};
+
 app.use(express.static(path.resolve('./public')));
 app.get('/', (req, res) => {
     return res.sendFile('/public/index.html');
@@ -37,7 +39,15 @@ app.get('/', (req, res) => {
 
 //Socket.io
 io.on('connection', (socket) => {
-   console.log("A new user has been added",socket.id)
+    socket.on('new-user-joined', (name) => {
+
+        users[socket.id] = name;
+        console.log(name)
+        socket.broadcast.emit("user-joined", name);
+    })
+    socket.on('send', (message) => {
+        socket.broadcast.emit('recieve', { message: message, name: users[socket.id] })
+    });
 })
 
 server.listen(9000, () =>

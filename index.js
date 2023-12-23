@@ -42,7 +42,7 @@ io.on('connection', (socket) => {
     socket.on('new-user-joined', (name) => {
 
         users[socket.id] = name;
-        console.log(name)
+        console.log("New user" , name)
         socket.broadcast.emit("user-joined", name);
     })
     socket.on('send', (message) => {

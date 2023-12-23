@@ -13,9 +13,10 @@ const append = (message, position) => {
     messageElement.classList.add(position);
     messageContainer.append(messageElement);
 }
-form.addEventListener('submit', () => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
     const message = messageInput.value;
+    console.log(e);
     append(`You: ${message}`, 'right');
     socket.emit('send', message);
     messageInput.value = '';
@@ -30,6 +31,6 @@ socket.on('user-joined', (name) => {
 })
 
 socket.on('receive', (data) => {
-    append(`${data.name}:${data.message}`, 'left')
+    append(`${data.name}: ${data.message}`, 'left')
 })
 

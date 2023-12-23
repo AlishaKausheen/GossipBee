@@ -1,13 +1,21 @@
-.logo{
-    display: block;
-    margin: auto;
-    width: 2rem;
-    height: 2rem;
-}
 body{
     background-image: linear-gradient(rgb(125, 194, 246), #353333);
     height: 100vh;
 }
+h1{
+    margin-top: 2%;
+    font-size: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+.logo{
+    display: block;
+    margin: auto;
+    width: 4vw;
+    height: 6vh;
+
+}
+
 .container{
     max-width: 955px;
     margin: auto;
@@ -40,17 +48,24 @@ body{
     text-align: center;
     display: block;
     margin: auto;
-    max-width: 980px;
+    max-width: 76vw;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #messageInp{
-    width:92%;
+    width:87%;
+    font-size: medium;
+    font-family: cursive;
     border: 2px solid saddlebrown;
     border-radius: 6px;
     height: 4vh;
 }
 .btn{
+    width: 11%;
     cursor: pointer;
+    margin: 0 5px;
     border: 2px solid saddlebrown;
     border-radius: 6px;
     height: 4vh;
